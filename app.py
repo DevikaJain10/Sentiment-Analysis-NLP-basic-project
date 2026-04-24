@@ -2,7 +2,14 @@ import streamlit as st
 import re
 import pickle
 from nltk.tokenize import word_tokenize
+import nltk
 
+nltk.download("stopwords")
+nltk.download("punkt")
+nltk.download("punkt_tab")
+
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 # Load saved model and vectorizer
 with open("svm_model.pkl", "rb") as f:
     svm_model = pickle.load(f)
