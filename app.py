@@ -3,38 +3,41 @@ import re
 import pickle
 import nltk
 
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+
 nltk.download("stopwords")
 nltk.download("punkt")
 nltk.download("punkt_tab")
 
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-
-# Page config
 st.set_page_config(
     page_title="IMDb Sentiment Analyzer",
     page_icon="🎬",
     layout="centered"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
-.main {
-    background-color: #0f172a;
+.stApp {
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .title {
     text-align: center;
     color: #facc15;
-    font-size: 42px;
+    font-size: 44px;
     font-weight: 800;
+    margin-top: 20px;
 }
 
 .subtitle {
     text-align: center;
-    color: #cbd5e1;
-    font-size: 18px;
+    color: #e2e8f0;
+    font-size: 19px;
     margin-bottom: 30px;
 }
 
@@ -58,7 +61,7 @@ st.markdown("""
 }
 
 .info-box {
-    background-color: #1e293b;
+    background-color: rgba(30, 41, 59, 0.9);
     color: #e2e8f0;
     padding: 18px;
     border-radius: 12px;
@@ -67,15 +70,23 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Load model and vectorizer
-with open("svm_model.pkl", "rb") as f:
-    svm_model = pickle.load(f)
 
-with open("tfidf.pkl", "rb") as f:
-    tfidf = pickle.load(f)
+@st.cache_resource
+def load_model():
+    with open("svm_model.pkl", "rb") as f:
+        svm_model = pickle.load(f)
+
+    with open("tfidf.pkl", "rb") as f:
+        tfidf = pickle.load(f)
+
+    return svm_model, tfidf
+
+
+svm_model, tfidf = load_model()
 
 stop_words = set(stopwords.words("english"))
 stop_words = stop_words - {"no", "not", "nor", "never"}
+
 
 def handle_negation(text):
     text = text.replace("not good", "not_good")
@@ -85,6 +96,7 @@ def handle_negation(text):
     text = text.replace("not worth", "not_worth")
     text = text.replace("never good", "never_good")
     return text
+
 
 def preprocess(text):
     text = text.lower()
@@ -98,14 +110,13 @@ def preprocess(text):
 
     return " ".join(tokens)
 
-# Header
+
 st.markdown('<div class="title">🎬 IMDb Sentiment Analyzer</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div class="subtitle">Analyze whether a movie review is positive or negative using NLP + SVM</div>',
+    '<div class="subtitle">🎥 Analyze movie reviews with AI-powered sentiment detection using NLP + SVM</div>',
     unsafe_allow_html=True
 )
 
-# Input card
 st.markdown("### ✍️ Enter a Movie Review")
 
 user_input = st.text_area(
@@ -142,9 +153,8 @@ if predict_button:
         with st.expander("See processed text"):
             st.write(cleaned_text)
 
-# Example section
 st.markdown("---")
-st.markdown("### 🧪 Try Example Reviews")
+st.markdown("###  Try Example Reviews")
 
 example_col1, example_col2 = st.columns(2)
 
@@ -154,10 +164,9 @@ with example_col1:
 with example_col2:
     st.info("This movie was not good. The plot was boring and slow.")
 
-# About section
 st.markdown("""
 <div class="info-box">
-<h3>📌 About this Project</h3>
+<h3> About this Project</h3>
 <p>This app uses an NLP pipeline with preprocessing, negation handling, TF-IDF feature extraction, and an SVM classifier to predict movie review sentiment.</p>
 <p><b>Tech Stack:</b> Python, NLTK, Scikit-learn, Streamlit</p>
 </div>
