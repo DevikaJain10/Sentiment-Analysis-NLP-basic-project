@@ -6,6 +6,19 @@ This project builds a Natural Language Processing (NLP) pipeline to classify mov
 The focus is on understanding the **complete NLP workflow**, including preprocessing, POS tagging, feature extraction, and model comparison.
 
 ---
+## Dataset Setup
+to download the dataset: use this link (https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)  
+OR
+You can download the IMDb dataset using the following code:
+
+```python
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("lakshmi25npathi/imdb-dataset-of-50k-movie-reviews")
+
+print("Path to dataset files:", path)
+```
 
 ##  Key Features
 - Text preprocessing (cleaning, tokenization, stopword removal)
@@ -24,34 +37,33 @@ Tech stack:
 Python, NLTK ,Scikit-learn ,Pandas, NumPy
 ##  NLP Pipeline
 
-Raw Text
-   ↓
-   Preprocessing
-      ├── Lowercasing
-      ├── HTML Removal
-      └── Punctuation Removal
-   ↓
-   Tokenization
-   ↓
-   Stopword Removal
-      └── Negation Preserved (e.g., "not")
-   ↓
-   POS Tagging
-   ↓
-   TF-IDF Feature Extraction
-      └── Unigrams + Bigrams
-   ↓
-   Model Training
-      ├── Naive Bayes
-      ├── Logistic Regression
-      └── Support Vector Machine (SVM)
-   ↓
-   Evaluation & Prediction
+Raw Text:
+   ->Preprocessing
+      -Lowercasing
+      - HTML Removal
+      - Punctuation Removal
+   
+   ->Tokenization
+   
+   ->Stopword Removal
+      -Negation Preserved (e.g., "not")
+   
+   ->POS Tagging
+   
+   ->TF-IDF Feature Extraction
+      - Unigrams + Bigrams
+   
+   ->Model Training
+      - Naive Bayes
+      - Logistic Regression
+      - Support Vector Machine (SVM)
+   
+   ->Evaluation & Prediction
 
 ## Future Improvements
 
-Use deep learning models (LSTM, BERT)
+1)Use deep learning models (LSTM, BERT)
 
-Improve sarcasm detection
+2)Improve sarcasm detection
 
-Deploy as a web app (Streamlit/Flask)
+3)Deploy as a web app (Streamlit/Flask)
