@@ -123,7 +123,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-4. Open the link shown in the terminal (usually [http://localhost:8501](http://localhost:8501))
 
 ---
 
