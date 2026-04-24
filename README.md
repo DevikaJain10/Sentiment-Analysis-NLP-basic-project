@@ -1,6 +1,7 @@
 
-![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-brightgreen)
 #  Sentiment Analysis of IMDb Movie Reviews
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20App-FF4B4B?logo=streamlit&logoColor=white)](https://sentiment-analysis-nlp-basic-project-kt3srvjmc6uqrzw9gejj3x.streamlit.app/)
 ## 🌐 Live Demo
 https://sentiment-analysis-nlp-basic-project-kt3srvjmc6uqrzw9gejj3x.streamlit.app/
 
