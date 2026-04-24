@@ -1,4 +1,8 @@
+
+![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-brightgreen)
 #  Sentiment Analysis of IMDb Movie Reviews
+## 🌐 Live Demo
+https://sentiment-analysis-nlp-basic-project-kt3srvjmc6uqrzw9gejj3x.streamlit.app/
 
 ##  Project Overview
 This project builds a Natural Language Processing (NLP) pipeline to classify movie reviews as **positive** or **negative** using the IMDb dataset from kaggle.  
@@ -31,10 +35,18 @@ cd <repo-name>
 ```
    pip install -r requirements.txt
 ```
-4. Run the script:
+3. Run the script:
    ```
    python nlp_basic_project.py
    ```
+
+## 📌 Project Overview
+
+This project builds an end-to-end NLP pipeline to classify IMDb movie reviews as **positive** or **negative**.
+
+It includes preprocessing, POS tagging, TF-IDF feature extraction, and sentiment classification using an SVM model.  
+The project is deployed as an interactive web app using Streamlit.
+
 ##  Sample Output
 Input: "This movie was fantastic!"
 Output: positive
@@ -43,6 +55,7 @@ Input: "This movie was not good."
 Output: negative
 
 ##  Key Features
+- Interactive Streamlit web app for real-time predictions
 - Text preprocessing (cleaning, tokenization, stopword removal)
 - POS (Part-of-Speech) tagging using NLTK
 - TF-IDF feature extraction with unigrams and bigrams
