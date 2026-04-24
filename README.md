@@ -20,6 +20,28 @@ path = kagglehub.dataset_download("lakshmi25npathi/imdb-dataset-of-50k-movie-rev
 print("Path to dataset files:", path)
 ```
 
+##  How to Run
+
+1. Clone the repository:
+```
+git clone <your-repo-link>
+cd <repo-name>
+```
+2. Install dependencies:
+```
+   pip install -r requirements.txt
+```
+4. Run the script:
+   ```
+   python nlp_basic_project.py
+   ```
+##  Sample Output
+Input: "This movie was fantastic!"
+Output: positive
+
+Input: "This movie was not good."
+Output: negative
+
 ##  Key Features
 - Text preprocessing (cleaning, tokenization, stopword removal)
 - POS (Part-of-Speech) tagging using NLTK
