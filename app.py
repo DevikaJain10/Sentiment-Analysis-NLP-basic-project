@@ -34,7 +34,7 @@ def preprocess(text):
     return " ".join(tokens)
 
 # UI
-st.title("🎬 IMDb Sentiment Analyzer")
+st.title(" IMDb Sentiment Analyzer")
 
 user_input = st.text_area("Enter a movie review:")
 
