@@ -26,21 +26,32 @@ Python, NLTK ,Scikit-learn ,Pandas, NumPy
 
 Raw Text
    ↓
-Preprocessing (lowercasing, HTML removal, punctuation removal)
+   Preprocessing
+      ├── Lowercasing
+      ├── HTML Removal
+      └── Punctuation Removal
    ↓
-Tokenization
+   Tokenization
    ↓
-Stopword Removal (with negation preserved)
+   Stopword Removal
+      └── Negation Preserved (e.g., "not")
    ↓
-POS Tagging
+   POS Tagging
    ↓
-TF-IDF Feature Extraction (n-grams)
+   TF-IDF Feature Extraction
+      └── Unigrams + Bigrams
    ↓
-Model Training (LR, NB, SVM)
+   Model Training
+      ├── Naive Bayes
+      ├── Logistic Regression
+      └── Support Vector Machine (SVM)
    ↓
-Evaluation & Prediction
+   Evaluation & Prediction
 
 ## Future Improvements
+
 Use deep learning models (LSTM, BERT)
+
 Improve sarcasm detection
+
 Deploy as a web app (Streamlit/Flask)
