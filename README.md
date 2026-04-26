@@ -15,6 +15,8 @@ It includes text preprocessing, POS tagging, TF-IDF feature extraction, and sent
 The project is deployed as an interactive web application using Streamlit.
 
 ---
+## Dataset link
+https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
 
 ##  Features
 
